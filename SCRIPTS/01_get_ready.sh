@@ -40,8 +40,7 @@ linkease_repo="https://github.com/linkease/openwrt-app-actions"
 linkease_pkg_repo="https://github.com/jjm2473/packages"
 linkease_luci_repo="https://github.com/jjm2473/luci"
 sirpdboy_repo="https://github.com/sirpdboy/sirpdboy-package"
-sbwdaednext_repo="https://github.com/sbwml/luci-app-daed-next"
-lucidaednext_repo="https://github.com/QiuSimons/luci-app-daed-next"
+daed_repo="https://github.com/QiuSimons/luci-app-daed.git"
 sbwfw876_repo="https://github.com/sbwml/openwrt_helloworld"
 sbw_pkg_repo="https://github.com/sbwml/openwrt_pkgs"
 natmap_repo="https://github.com/blueberry-pie-11/luci-app-natmap"
@@ -60,6 +59,7 @@ clone_repo $openwrt_pkg_repo master openwrt_pkg_ma &
 clone_repo $openwrt_add_repo master OpenWrt-Add &
 clone_repo $dockerman_repo master dockerman &
 clone_repo $docker_lib_repo master docker_lib &
+clone_repo $daed_repo kix luci-app-daed &
 # 等待所有后台任务完成
 wait
 
