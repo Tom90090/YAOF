@@ -227,6 +227,14 @@ CONFIG_CPU_IDLE_GOV_TEO=y
 # 查找所有与内核 6.6 相关的配置文件并将这些配置项追加到文件末尾
 find ./target/linux/ -name "config-${KERNEL_VERSION}" | xargs -I{} sh -c "echo '$CONFIG_CONTENT' | tee -a {} > /dev/null"
 
+### 集成 DAED 包 ###
+# 复制 DAED 相关文件到 feeds/luci
+rm -rf feeds/luci/applications/luci-app-daed
+cp -rf ../luci-app-daed/applications/luci-app-daed ./feeds/luci/applications/luci-app-daed
+# 复制 DAED 依赖包到 feeds/packages
+mkdir -p feeds/packages/net/daed
+cp -rf ../luci-app-daed/packages/net/daed/* ./feeds/packages/net/ 2>/dev/null || true
+
 ### 最后的收尾工作 ###
 # Lets Fuck
 mkdir -p package/base-files/files/usr/bin
